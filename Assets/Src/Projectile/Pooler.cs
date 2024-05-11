@@ -41,7 +41,7 @@ public class Pooler : MonoBehaviour
     {
         foreach(GameObject obj in Pool)
         {
-            if (obj.activeInHierarchy)
+            if (!obj.activeInHierarchy)
             {
                 return obj;
             }

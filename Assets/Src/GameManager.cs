@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager:MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    static int score = 0;
+
+    public static void AddScore(int amount) {
+        score += amount;
+    }
+    public static int GetScore()
     {
-        
+        return score;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void StartGame() {
+        score = 0;
+        SceneManager.LoadScene("Main");
+    }
+
+    public static void EndGameDefeat()
     {
-        
+        Debug.Log("EndGameDefeat");
+        SceneManager.LoadScene("GameDefeat");
+    }
+
+    public static void EndGameVictory()
+    {
+        SceneManager.LoadScene("GameEnd");
     }
 }
